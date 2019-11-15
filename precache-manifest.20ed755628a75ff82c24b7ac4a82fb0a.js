@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5a6e921ce99980bac432c64626ad8642",
+    "revision": "a53ec133bf79dd6fe2a8ee7faf18eade",
     "url": "/verbformer/index.html"
   },
   {
-    "revision": "b80a3ce413e55d1c4494",
+    "revision": "7952fc67e3c5288a8e79",
     "url": "/verbformer/static/css/main.708ab4ee.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/verbformer/static/js/2.ef2b8e5a.chunk.js"
   },
   {
-    "revision": "b80a3ce413e55d1c4494",
-    "url": "/verbformer/static/js/main.e1f37ea0.chunk.js"
+    "revision": "7952fc67e3c5288a8e79",
+    "url": "/verbformer/static/js/main.495abfac.chunk.js"
   },
   {
     "revision": "da71cc93494f0449f2f5",

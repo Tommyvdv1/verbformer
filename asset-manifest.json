@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/verbformer/static/css/main.708ab4ee.chunk.css",
-    "main.js": "/verbformer/static/js/main.e1f37ea0.chunk.js",
-    "main.js.map": "/verbformer/static/js/main.e1f37ea0.chunk.js.map",
+    "main.js": "/verbformer/static/js/main.495abfac.chunk.js",
+    "main.js.map": "/verbformer/static/js/main.495abfac.chunk.js.map",
     "runtime-main.js": "/verbformer/static/js/runtime-main.9eb64ba6.js",
     "runtime-main.js.map": "/verbformer/static/js/runtime-main.9eb64ba6.js.map",
     "static/js/2.ef2b8e5a.chunk.js": "/verbformer/static/js/2.ef2b8e5a.chunk.js",
     "static/js/2.ef2b8e5a.chunk.js.map": "/verbformer/static/js/2.ef2b8e5a.chunk.js.map",
     "index.html": "/verbformer/index.html",
-    "precache-manifest.4fb3cc80e4568f56523664f40a7ddf74.js": "/verbformer/precache-manifest.4fb3cc80e4568f56523664f40a7ddf74.js",
+    "precache-manifest.20ed755628a75ff82c24b7ac4a82fb0a.js": "/verbformer/precache-manifest.20ed755628a75ff82c24b7ac4a82fb0a.js",
     "service-worker.js": "/verbformer/service-worker.js",
     "static/css/main.708ab4ee.chunk.css.map": "/verbformer/static/css/main.708ab4ee.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.9eb64ba6.js",
     "static/js/2.ef2b8e5a.chunk.js",
     "static/css/main.708ab4ee.chunk.css",
-    "static/js/main.e1f37ea0.chunk.js"
+    "static/js/main.495abfac.chunk.js"
   ]
 }
