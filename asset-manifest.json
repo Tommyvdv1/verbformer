@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Verbformer/static/css/main.708ab4ee.chunk.css",
+    "main.js": "/Verbformer/static/js/main.5e610ced.chunk.js",
+    "main.js.map": "/Verbformer/static/js/main.5e610ced.chunk.js.map",
+    "runtime-main.js": "/Verbformer/static/js/runtime-main.82f7381e.js",
+    "runtime-main.js.map": "/Verbformer/static/js/runtime-main.82f7381e.js.map",
+    "static/js/2.ef2b8e5a.chunk.js": "/Verbformer/static/js/2.ef2b8e5a.chunk.js",
+    "static/js/2.ef2b8e5a.chunk.js.map": "/Verbformer/static/js/2.ef2b8e5a.chunk.js.map",
+    "index.html": "/Verbformer/index.html",
+    "precache-manifest.a1b5e52e9217184abae8a07ad6d5e925.js": "/Verbformer/precache-manifest.a1b5e52e9217184abae8a07ad6d5e925.js",
+    "service-worker.js": "/Verbformer/service-worker.js",
+    "static/css/main.708ab4ee.chunk.css.map": "/Verbformer/static/css/main.708ab4ee.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.82f7381e.js",
+    "static/js/2.ef2b8e5a.chunk.js",
+    "static/css/main.708ab4ee.chunk.css",
+    "static/js/main.5e610ced.chunk.js"
+  ]
+}
