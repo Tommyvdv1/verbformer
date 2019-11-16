@@ -1,0 +1,2 @@
+(this.webpackJsonpverbformer=this.webpackJsonpverbformer||[]).push([[4],{32:function(e,t,n){"use strict";n.r(t);var r=n(9),a=n(10),c=n(12),i=n(11),s=n(13),u=n(0),b=n.n(u),o=function(e){function t(){return Object(r.a)(this,t),Object(c.a)(this,Object(i.a)(t).apply(this,arguments))}return Object(s.a)(t,e),Object(a.a)(t,[{key:"render",value:function(){return b.a.createElement("div",{className:"text-center align-items-center"},b.a.createElement("h1",null,"Oregelbundna Verbformer"))}}]),t}(u.Component);t.default=o}}]);
+//# sourceMappingURL=4.bb40e337.chunk.js.map

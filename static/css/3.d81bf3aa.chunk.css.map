@@ -1,0 +1,1 @@
+{"version":3,"sources":["Verbformer.css"],"names":[],"mappings":"AAAA,YACC,QAAS,CACP,SAAU,CACT,kCAAqC,CACrC,gBAAiB,CACjB,gBAAiB,CACjB,YACJ","file":"3.d81bf3aa.chunk.css","sourcesContent":[".Verbformer {\n\tmargin: 0;\n  \tpadding: 0;\n    font-family: \"Avenir Next\",sans-serif;\n    font-size: 1.3rem;\n    line-height: 1.25;\n    height: 100vh;\n}\n"]}
