@@ -1,14 +1,14 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ddfb81820d53eb46430b317252e5ec6f",
+    "revision": "8f78bf3d6de88b81960e7c438fa50e4c",
     "url": "/verbformer/index.html"
   },
   {
-    "revision": "05aae2a595fe21dcc5c6",
+    "revision": "70ea1f4c719400d74ca1",
     "url": "/verbformer/static/css/3.d81bf3aa.chunk.css"
   },
   {
-    "revision": "1dcc74e85c87871036cf",
+    "revision": "6a20c111520a5050f6d9",
     "url": "/verbformer/static/css/4.d81bf3aa.chunk.css"
   },
   {
@@ -20,24 +20,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/verbformer/static/js/2.819edcc7.chunk.js"
   },
   {
-    "revision": "05aae2a595fe21dcc5c6",
-    "url": "/verbformer/static/js/3.aecebd6c.chunk.js"
+    "revision": "70ea1f4c719400d74ca1",
+    "url": "/verbformer/static/js/3.07ce9527.chunk.js"
   },
   {
-    "revision": "1dcc74e85c87871036cf",
-    "url": "/verbformer/static/js/4.ca080a06.chunk.js"
+    "revision": "6a20c111520a5050f6d9",
+    "url": "/verbformer/static/js/4.c1b95cfe.chunk.js"
   },
   {
-    "revision": "3cc0e38c56ffd7c30acc",
-    "url": "/verbformer/static/js/5.bbbd800b.chunk.js"
+    "revision": "f6ef1caaa0dc53edcad9",
+    "url": "/verbformer/static/js/5.ae019081.chunk.js"
   },
   {
-    "revision": "370a7227656ef6e41370",
-    "url": "/verbformer/static/js/6.343b25a8.chunk.js"
+    "revision": "b4449864d18cf1d02ab2",
+    "url": "/verbformer/static/js/6.8c70dd75.chunk.js"
   },
   {
-    "revision": "134da9bc3d8794425fdf",
-    "url": "/verbformer/static/js/7.fb3acf17.chunk.js"
+    "revision": "99cce191e5fc573d68d1",
+    "url": "/verbformer/static/js/7.c29b032d.chunk.js"
   },
   {
     "revision": "69ce2d4cbc20e925260f",
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/verbformer/static/js/main.24630725.chunk.js"
   },
   {
-    "revision": "aa8b77bf81a44ff930e8",
-    "url": "/verbformer/static/js/runtime-main.a4692c0f.js"
+    "revision": "aa13591a90864d06a9fe",
+    "url": "/verbformer/static/js/runtime-main.2861a829.js"
   }
 ]);
