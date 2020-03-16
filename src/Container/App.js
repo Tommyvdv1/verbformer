@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Header from '../Components/Header';
-import Body from '../Components/Body';
+import React, { Component, Suspense } from 'react';
+const Header = React.lazy(() => import('../Components/Header'));
+const Body = React.lazy(() => import('../Components/Body'));
 
 class App extends Component {
     
@@ -9,8 +9,10 @@ class App extends Component {
     render() {
       return(
         <div>
-            <Header/>
-            <Body/>
+        	<Suspense fallback={<div>Loading...</div>}>
+            	<Header/>
+            	<Body/>
+            </Suspense>
         </div>
         )
     }

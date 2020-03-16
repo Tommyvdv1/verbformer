@@ -6,19 +6,21 @@ import {
   WORKLIST_FILLED,
   CHECKVERB, 
   SVARVERB,
+  FILLED_TESTLIST,
+  EMPTY_TESTLIST,
   } from './Constants';
 
-export const bekrafta = () => (dispatch) => {
+export const bekrafta = (log) => (dispatch) => {
   dispatch({
     type: BEKRAFTA_SUCCES,
-    payload: true,
+    payload: log,
   })
 }
 
 export const gorom = () => (dispatch) => {
   dispatch({
     type: BEKRAFTA_FAILED,
-    payload: false,
+    payload: 'check',
   })
 }
 
@@ -29,16 +31,16 @@ export const setMingla = (state) => (dispatch) => {
   })
 }
 
-export const fillWorkList = (min, max, WorkList, verb) => (dispatch) => {
+export const fillWorkList = (min, max, workList, verb, språk) => (dispatch) => {
   var i;
   for (i = min; i < max; i++) {
-      WorkList.push(verb[i]);
+      workList.push(verb[i]);
   }
   dispatch({
     type: WORKLIST_FILLED,
-    payload: WorkList
+    payload: {WorkList:workList, Språk:språk, testList:workList,},
     });
-  console.log(WorkList);
+  console.log(workList);
 }
 
 export const InitialWorkList = () => (dispatch) => {
@@ -53,15 +55,15 @@ export const FillCheckVerb = (Mingla, WorkList, int, CheckVerb) => (dispatch) =>
     int[0] = Math.floor(Math.random() * (WorkList.length - 1)) + 1;
   }
   else {
-    if(int[0] < WorkList.length) {
-    int[0]=int[0]+1; 
+    if(WorkList.length!==0 && int[0]!==0){
+      WorkList.splice(0,1)
     }
     else {
-      int[0] = 1; 
+      int[0]=1;
     }
   }
   console.log(WorkList[0]);
-  Object.keys(WorkList[0]).map((value)=> {CheckVerb[value] = WorkList[int[0]-1][value];return(value);});
+  Object.keys(WorkList[0]).forEach((value)=> {CheckVerb[value] = WorkList[int[0]-1][value];});
   dispatch(
   {
     type: CHECKVERB,
@@ -70,9 +72,65 @@ export const FillCheckVerb = (Mingla, WorkList, int, CheckVerb) => (dispatch) =>
 }
 
 export const FillSvarVerb = (SvarVerb) => (dispatch) => {
-  Object.keys(SvarVerb).map((value)=> {SvarVerb[value]=document.getElementById(value).value.toLowerCase();return(value);});
+  Object.keys(SvarVerb).forEach((value)=> {SvarVerb[value]=document.getElementById(value).value.toLowerCase();});
   dispatch({
     type:SVARVERB,
     payload: SvarVerb
     })
 }
+
+const check1 = (a, b, c, d) => { 
+  if (a === b)
+  {
+    return(c);//"#8bbc33";
+  }
+  else
+  {
+    return(d);
+  }
+}
+
+export const FillTestList = (SvarVerb, testList, CheckVerb) => (dispatch) => {
+  const Verb = {
+    nederländska: CheckVerb.nederländska,
+    infinitiv: CheckVerb.infinitiv,
+    presens: SvarVerb.presens,
+    preteritum: SvarVerb.preteritum,
+    supinum: SvarVerb.supinum,
+    backgroundColor:{},
+    correctAnswer: {},
+  };
+  Object.keys(SvarVerb).forEach(value =>{
+    const name=value+'Color';
+    Verb.backgroundColor[name]=check1(SvarVerb[value], CheckVerb[value],'rgb(139, 188, 51)',"#ff4d4d");
+    Verb.correctAnswer[value]=check1(SvarVerb[value], CheckVerb[value], '' , `(${CheckVerb[value]})` );
+  });
+  testList.push(Verb);
+  dispatch({
+    type: FILLED_TESTLIST,
+    payload: testList,
+    })
+}
+
+//voorlopig niet gebruikt!
+export const fillTestList2 = (min, max, testList, workList, verb) => (dispatch) => {
+  var i;
+  for (i = min; i < max; i++) {
+      testList.push(verb[i]);
+  }
+  workList=testList;
+  console.log(workList);
+  //Object.keys(testList).map(value=>{value['backgroundColor']={presensColor:'',preteritumColor:'',supinumColor:'',}});
+  dispatch({
+    type: FILLED_TESTLIST,
+    payload: testList,
+    })
+}
+
+
+export const ClearTestList = () => (dispatch) => {
+  dispatch({
+    type: EMPTY_TESTLIST,
+  })
+}
+

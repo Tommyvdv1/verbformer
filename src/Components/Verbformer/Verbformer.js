@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './Verbformer.css';
 import { connect } from 'react-redux';
-import { InitialWorkList, FillCheckVerb, FillSvarVerb, gorom, } from '../../actions';
+import { FillCheckVerb, FillSvarVerb, gorom, } from '../../actions';
 
 const mapStateToProps = state => {
     return {
+    	Språk: state.VerbReducer.Språk,
         Work: state.VerbReducer.WorkList,
         Mingla: state.VerbReducer.Mingla,
         int: state.VerbReducer.int,
@@ -15,7 +16,6 @@ const mapStateToProps = state => {
 
 const mapsDispatchToProps = (dispatch) => {
     return {
-        Clear: () => dispatch(InitialWorkList()),
         Fill: (Mingla, WorkList, int, CheckVerb) => dispatch(FillCheckVerb(Mingla, WorkList, int, CheckVerb)),
  		FillSvarVerb: (SvarVerb) => dispatch(FillSvarVerb(SvarVerb)),
  		gorom: () => dispatch(gorom()),
@@ -26,13 +26,12 @@ class Verb extends Component {
     
 GörOm = () => {
 	this.props.gorom();
-	this.props.Clear();
 }
 
 getVerb = () => {
-	const {Mingla, int, CheckVerb, Work, Fill, SvarVerb} =this.props;
+	const {Mingla, int, CheckVerb, Work, Fill, SvarVerb, Språk} =this.props;
 	Fill(Mingla, Work, int, CheckVerb);
-	document.getElementById("demo").innerHTML = CheckVerb.infinitiv;
+	Språk === "swe" ? document.getElementById("demo").innerHTML = CheckVerb.infinitiv : document.getElementById("demo").innerHTML = CheckVerb.nederländska;
 	Object.keys(SvarVerb).map((value)=> {return(document.getElementById(value).value="");});
 	Object.keys(SvarVerb).map((value)=> {return(document.getElementById(value).style="");});
 	document.getElementById("Answer").style.visibility='hidden';
@@ -64,17 +63,13 @@ Check = () => {
 }
 
 ShowAnswer = () => {
-	const {CheckVerb, Work} = this.props;
+	const {Work} = this.props;
 	if (document.getElementById("presens").style.backgroundColor === 'rgb(139, 188, 51)' &&
 		document.getElementById("preteritum").style.backgroundColor === 'rgb(139, 188, 51)' &&
 		document.getElementById("supinum").style.backgroundColor === 'rgb(139, 188, 51)' 
 		)
 	{	
-		document.getElementById("Answer").style.visibility='visible';
-		document.getElementById("Ned").innerHTML=`<i>(${CheckVerb.nederländska})</i>`;
-		document.getElementById("Pres").innerHTML=`presens: <b>${CheckVerb.presens}</b>`;
-		document.getElementById("Pret").innerHTML=`Preteritum: <b>${CheckVerb.preteritum}</b>`;
-		document.getElementById("Sup").innerHTML=`Supinum: <b>${CheckVerb.supinum}</b>`;
+		this.ShowHint();
 		document.getElementById("NästaBtn").disabled=false;
 		if(Work.length===1){document.getElementById("Svara").disabled=true;document.getElementById("NästaBtn").disabled=true};
 	}
@@ -84,14 +79,33 @@ ShowAnswer = () => {
 	}
 }
 
+ShowHint = () => {
+	const {CheckVerb,} = this.props;
+	document.getElementById("Answer").style.visibility='visible';
+	document.getElementById("Ned").innerHTML=`<i>(${CheckVerb.nederländska})</i>`;
+	document.getElementById("Pres").innerHTML=`presens: <b>${CheckVerb.presens}</b>`;
+	document.getElementById("Pret").innerHTML=`Preteritum: <b>${CheckVerb.preteritum}</b>`;
+	document.getElementById("Sup").innerHTML=`Supinum: <b>${CheckVerb.supinum}</b>`;
+}
+
 EnterFunction = (event) => {
+	console.log(event.which);
   	if (event.which === 13) {
    	document.getElementById("Svara").click();
   }
+  	else if(event.which === 49) {
+  		this.props.Work.map((value,key) => {return(document.getElementById("AnswerList").innerHTML +=
+							`<div key=${key} class='d-flex justify-content-center'>` +
+								`<p class='m-3 d-none d-lg-block d-xl-block' id='Ned'>${value.nederländska}</p>` +
+								`<p class='m-3 d-none d-lg-block d-xl-block' id='Pres'>${value.presens}</p>` +
+								`<p class='m-3 d-none d-lg-block d-xl-block' id='Pret'>${value.preteritum}</p>` +
+								`<p class='m-3 d-none d-lg-block d-xl-block' id='Sup'>${value.supinum}</p>` +
+							`</div>`
+						)})
+  	}
 }
 
 componentDidMount() {
-	document.body.style.backgroundColor = '#ffcc00';
     document.getElementById("NästaBtn").disabled=false;
     document.getElementById("Svara").disabled=true;
 }
@@ -106,53 +120,58 @@ componentDidMount() {
 					<div className="text-center m-2">
 							<p>Skriv alla verbformer.</p>
 					</div>
-					<div className="d-flex flex-column flex-sm-column flex-md-column flex-lg-row">
+					<div className="d-flex flex-column flex-sm-column flex-md-column flex-lg-row justify-content-between border">
 			  				
-			    				<div className="col-sm m-2 text-center">
+			    				<div className="text-center mt-lg-2 mr-lg-5">
 			      					<p id="demo"></p>
 			    				</div>
-			    				<div className="col-sm m-2">
+			    				<div className="flex-fill px-3">
 			      					<div className="input-group mb-3">
 							  			<input type="text" className="form-control" placeholder="Presens" aria-label="Presens" aria-describedby="basic-addon1" id="presens"></input>
 									</div>
 			    				</div>
-			    				<div className="col-sm m-2">
+			    				<div className="flex-fill px-3">
 			      					<div className="input-group mb-3">
 							  			<input type="text" className="form-control" placeholder="Preteritum" aria-label="Preteritum" aria-describedby="basic-addon1" id="preteritum"></input>
 									</div>
 			    				</div>
-			    				<div className='col-sm m-2'>
+			    				<div className='flex-fill px-3'>
 			    					<div className="input-group mb-3">
 							  			<input type="text" className="form-control" placeholder="Supinum" aria-label="Supinum" aria-describedby="basic-addon1" id="supinum" onKeyPress={(event)=>this.EnterFunction(event)}></input>
 									</div>
 			    				</div>
 			  				
 					</div>
-						<div className="d-flex flex-column flex-sm-column flex-md-column flex-lg-row align-items-center">
-							<div className="col-sm m-2"></div>
-							<div className="col-sm m-8 d-flex justify-content-center">
-								<button type="button" id='Svara' className="btn btn-secondary btn-lg m-2" onClick={this.Check}>Svara</button>
-			
-								<button type="button" id='NästaBtn' className="btn btn-secondary btn-lg m-2" onClick={this.getVerb} >Nästa</button>
-							</div>
-							<div className="col-sm m-2 d-flex flex-row-reverse justify-content-center justify-content-lg-between">
-								<button type="button" id='GorOm' className="btn btn-secondary btn-lg m-2" onClick={this.GörOm}>Gör om</button>
+					<div className="d-flex flex-column flex-sm-column flex-md-column flex-lg-row justify-content-between align-items-lg-start border">
+						<div className="d-none d-lg-block d-xl-none d-xl-block align-items-center border">
+							<button type="button" id='GorOm' className="btn btn-secondary btn-lg m-2" style={{visibility: 'hidden'}}>GörOm</button>
+						</div>
+						<div className="d-flex justify-content-center border">
+							<div className='d-flex flex-row flex-wrap justify-content-center' style={{width:'250px'}}>
+								<div className='flex-col' ><button type="button" id='Svara' className="btn btn-secondary btn-lg m-2" onClick={this.Check}>Svara</button></div>
+				
+								<div className='flex-col' ><button type="button" id='NästaBtn' className="btn btn-secondary btn-lg m-2" onClick={this.getVerb} >Nästa</button></div>
+								
+								<div className='flex-col' ><button type="button" id='Hint' className="btn btn-secondary btn-lg m-2" onClick={this.ShowHint}>Hint</button></div>
 							</div>
 						</div>
-						<div className='container' id='Answer' style={{visibility: 'hidden',}}>
-							<div className='d-flex justify-content-center m-5'>
-								<p className='m-3' id='Ned'></p>
-								<p className='m-3 d-none d-lg-block d-xl-block' id='Pres'></p>
-								<p className='m-3 d-none d-lg-block d-xl-block' id='Pret'></p>
-								<p className='m-3 d-none d-lg-block d-xl-block' id='Sup'></p>
-							</div>
+						<div className="d-flex flex-row-reverse justify-content-center justify-content-lg-between border">
+							<button type="button" id='GorOm' className="btn btn-secondary btn-lg m-2" onClick={this.GörOm}>Gör om</button>
 						</div>
-					
+					</div>
+					<div className='container' id='Answer' style={{visibility: 'hidden',}}>
+						<div className='d-flex flex-column flex-sm-column flex-md-column flex-lg-row justify-content-center align-items-center mt-3'>
+							<p className='mr-lg-3' id='Ned'></p>
+							<p className='mr-lg-3' id='Pres'></p>
+							<p className='mr-lg-3' id='Pret'></p>
+							<p className='' id='Sup'></p>
+						</div>
+					</div>
+					<div className='container' id='AnswerList'></div>
 				</div>
 			</div>
 		</div>
 			)
     	}
-
     }
 export default connect(mapStateToProps, mapsDispatchToProps )(Verb);

@@ -5,11 +5,13 @@ import {
 	WORKLIST_INITIAL_STATE,
 	WORKLIST_FILLED,
 	CHECKVERB,
-	SVARVERB, 
+	SVARVERB,
+	EMPTY_TESTLIST,
+	FILLED_TESTLIST, 
 	} from './Constants';
 
 const initialState = {
-	Login: false,
+	Login: 'check',
 }
 
 export const LoginReducer = (state = initialState, action) => {
@@ -30,6 +32,7 @@ export const LoginReducer = (state = initialState, action) => {
 }
 
 const initialVerbState = {
+	Språk: "swe",
 	Mingla: false,
 	WorkList:[],
 	CheckVerb: {},
@@ -40,6 +43,7 @@ const initialVerbState = {
 		supinum:"",
 	},
 	int: [0],
+	testList:[],
 }
 
 export const VerbReducer = (state = initialVerbState, action) => {
@@ -52,12 +56,25 @@ export const VerbReducer = (state = initialVerbState, action) => {
 		case WORKLIST_FILLED:
 		return {
 			...state,
-			WorkList: action.payload
+			WorkList: action.payload.WorkList,
+			Språk: action.payload.Språk,
+			testList: action.payload.testList,
 		}
 		case WORKLIST_INITIAL_STATE:
 		return {
 			...state,
-			WorkList:[], int: [0], CheckVerb: {}, Mingla:false,
+			Språk: "swe",
+			Mingla: false,
+			WorkList:[],
+			CheckVerb: {},
+			SvarVerb: 
+			{
+				presens:"",
+				preteritum:"",
+				supinum:"",
+			},
+			int: [0],
+			testList:[],
 		}
 		case CHECKVERB:
 		return {
@@ -70,6 +87,16 @@ export const VerbReducer = (state = initialVerbState, action) => {
 		return {
 			...state,
 			SvarVerb: action.payload,
+		}
+		case EMPTY_TESTLIST:
+		return {
+			...state,
+			testList: [],
+		}
+		case FILLED_TESTLIST:
+		return {
+			...state,
+			testList: action.payload,
 		}
 		default:
 		return state;
