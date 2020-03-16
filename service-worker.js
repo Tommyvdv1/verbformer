@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/verbformer/precache-manifest.5c4b70fde935b71be69f949130b5fdea.js"
+  "/verbformer/precache-manifest.b5b1fb529298797c6ad4b4b58a6fc28c.js"
 );
 
 self.addEventListener('message', (event) => {

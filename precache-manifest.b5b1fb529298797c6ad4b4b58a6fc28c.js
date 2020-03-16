@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8f78bf3d6de88b81960e7c438fa50e4c",
+    "revision": "911dfb46cd1a221cf6ebc6f814d0e8c3",
     "url": "/verbformer/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/verbformer/static/css/3.d81bf3aa.chunk.css"
   },
   {
-    "revision": "6a20c111520a5050f6d9",
+    "revision": "114f5eade513fc9fbe55",
     "url": "/verbformer/static/css/4.d81bf3aa.chunk.css"
   },
   {
@@ -24,12 +24,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/verbformer/static/js/3.07ce9527.chunk.js"
   },
   {
-    "revision": "6a20c111520a5050f6d9",
-    "url": "/verbformer/static/js/4.c1b95cfe.chunk.js"
+    "revision": "114f5eade513fc9fbe55",
+    "url": "/verbformer/static/js/4.16fcc57d.chunk.js"
   },
   {
-    "revision": "f6ef1caaa0dc53edcad9",
-    "url": "/verbformer/static/js/5.ae019081.chunk.js"
+    "revision": "f883ce1b70abada007f3",
+    "url": "/verbformer/static/js/5.deca2533.chunk.js"
   },
   {
     "revision": "b4449864d18cf1d02ab2",
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/verbformer/static/js/main.24630725.chunk.js"
   },
   {
-    "revision": "aa13591a90864d06a9fe",
-    "url": "/verbformer/static/js/runtime-main.2861a829.js"
+    "revision": "c04a5b519419aca07cee",
+    "url": "/verbformer/static/js/runtime-main.d1bb2d03.js"
   }
 ]);
